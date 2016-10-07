@@ -1,0 +1,36 @@
+<%= form_for(@content) do |f| %>
+  <% if @content.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
+
+      <ul>
+      <% @content.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :タイトル %><br>
+    <%= f.text_area :title %>
+
+    <%= f.label :フレーズ %><br>
+    <%= f.text_area :phrase %>
+
+    <%= f.label :サムネイル %><br>
+    <%= f.file_field :thubnail %>
+
+    <%= f.label :概要説明 %><br>
+    <%= f.text_area :description %>
+
+    <%= f.label :ファイル投稿 %><br>
+    <%= f.file_field :file %>
+
+    <%= f.label :直接入力 %><br>
+    <%= f.text_area :direct_input %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
